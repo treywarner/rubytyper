@@ -1,0 +1,23 @@
+
+<h1 class="display-4 py-3 mb-3 border-bottom">Leaderboards</h1>
+<p>See how you compare against the world.</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">WPM</th>
+        <th scope="col">Accuracy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% i=0 ; @typing_scores.each do |user| %>
+      <tr>
+        <th scope="row"><%= i+=1 %></th>
+        <td><%= user[0] %></td>
+        <td><%= user[1] %></td>
+        <td><%= user[2] %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>

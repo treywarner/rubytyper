@@ -1,0 +1,48 @@
+<style>
+  input {
+    margin-left: 2%
+  }
+  #score-submit {
+    display: none;
+     padding-left: none;
+     margin-left: none;
+    margin-bottom: 2%; 
+  }
+</style>
+
+<h1 class="display-4 py-3 mb-3 border-bottom">SwiftType</h1>
+
+<h2 class="my-4" id="info">
+    WPM: <span id="wpm"></span>
+    Accuracy: <span id="accuracy"></span>
+</h2>
+
+<h2 class="my-4" id="score">
+
+</h2>
+
+<p id="typing_text"><%= @typing_text %></p>
+
+
+<div id="score-submit">
+  <form action="<%= url('/typing') %>" method="post" class="form-inline">
+    <div class="form-group col-md-4">
+        <label for="name">Name: </label>
+        <input type="text" name="name" class="form-control" id="name" required>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="name">WPM: </label>
+        <input type="text" name="wpm" class="form-control w-50" id="wpm-form" readonly="readonly">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="name">Accuracy: </label>
+        <input type="text" name="acc" class="form-control w-50" id="acc-form" readonly="readonly">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+
+
+
+<script src=<%= url("/typing.js") %> type="application/javascript" ></script>
