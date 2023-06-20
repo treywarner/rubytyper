@@ -41,10 +41,10 @@ class App < Sinatra::Base
     @typing_scores = File.foreach("#{__dir__}/typingscores").map { |line| line.split(' ')}.sort {|a,b| a[1].to_f*a[2].to_f <=> b[1].to_f*b[2].to_f}.reverse
     
     file=File.open("#{__dir__}/wordlist")
-    words = file.read.tr('().\'",', '').split
+    words = file.read.split
     len = 30
     typing = Array.new(len) {words[ rand(0..words.size) ]}
-    @typing_text = typing.join(' ').downcase
+    @typing_text = typing.join(' ').capitalize
     erb :typing
   end
 
@@ -60,6 +60,6 @@ class App < Sinatra::Base
     f.print "\n#{name} #{wpm} #{acc}"
     }
     
-    redirect(url("/typing"))
+    redirect(url("/leaderboards"))
   end
 end

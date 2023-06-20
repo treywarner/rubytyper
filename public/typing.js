@@ -22,19 +22,23 @@ $(document.body).on('keydown', function(e) {
         if (!start) {
             start=new Date();
         }
-        char = String.fromCharCode((96 <= e.which && e.which <= 105)? e.which-48 : e.which).toLowerCase()
+        char = e.key;
+        if (e.which > 8 && e.which <= 20) {
+            
+        } else {
         if (e.which == 8) {
             if (idx>0) {
                 highlight[idx]=null
                 idx--
                 countdown++
-                if (rights[idx]==true)
+                if (rights[idx]==true) {
                     right--
+                }
                 highlight[idx]=null
             }
         } else {
 
-            if (text[idx] == char) {
+            if (text[idx].toLowerCase() == char.toLowerCase()) {
                 rights[idx]=true
                 highlight[idx]='green'
                 //if (countdown>0) {
@@ -107,4 +111,5 @@ $(document.body).on('keydown', function(e) {
         document.getElementById("wpm-form").value = wpm_i
         document.getElementById("acc-form").value = acc_i
     }
+}
 });
